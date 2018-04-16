@@ -1,0 +1,88 @@
+<!-- <div class="modal-header">
+  <h4 class="modal-title pull-left">{{title}}</h4>
+  <button type="button" class="close pull-right" aria-label="Close" (click)="bsModalRef.hide()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div> -->
+<div class="modal-body">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+<button type="button" class="close pull-right" aria-label="Close" (click)="bsModalRef.hide()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      </div>
+    </div>
+  </div>
+  
+  <section>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-12 p-t-10">
+          <div class="card p-t-10">
+            <div class="card-body">
+              <form class="form" [formGroup]="loginForm" (ngSubmit)="doLogin()" novalidate>
+                
+                <div class="row">
+                  <div class="col-sm-12">
+                    <div class="form-group">
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" id="user-addon">
+                            <i class="fa fa-user" aria-hidden="true"></i>
+                          </span>
+                        </div>
+                        <input type="text" class="form-control" formControlName="userName" aria-describedby="user-addon" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+  
+                <div class="row">
+                  <div class="col-sm-12">
+                    <div class="form-group">
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" id="password-addon">
+                            <i class="fas fa-key" aria-hidden="true"></i>
+                          </span>
+                        </div>
+                        <input type="password" class="form-control" formControlName="password" aria-describedby="password-addon" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+  
+                <div class="row">
+                  <div class="col-sm-12">
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary w-100" [disabled]="loginForm.status == 'INVALID' ? true : false">Login</button>
+                    </div>
+                  </div>
+                </div>
+  
+              </form>
+            </div>
+          </div>
+  
+        </div>
+      </div>
+  
+      <div class="row">
+        <div class="col-sm-12 p-t-10">
+          <div class="col-sm-12">
+            <button type="submit" class="btn btn-primary w-100" (click)=register()>New to Magic Properties? Sign Up</button>
+          </div>
+          <div class="col-sm-12 p-t-10">
+            <button type="submit" class="btn btn-primary w-100">Forgot Password</button>
+          </div>
+        </div>
+      </div>
+  
+    </div>
+  </section>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-default" (click)="bsModalRef.hide()">{{closeBtnName}}</button>
+</div>
+

@@ -1,0 +1,242 @@
+<div class="container">
+  <div class="jumbotron bg-cover txt-white" [style.background]='property.imgUrl' role=”img”>
+  <div class="overlay"></div>
+    <div class="container">
+      <h1 class="display-4">{{property.name}}</h1>
+      <p>By <strong>{{property.builder.name}}</strong> | {{property.locality}} </p>
+      <div>
+        <p>
+          <b> &#8377; {{property.cost}} Lac </b>  <small class="mb-2 text-muted">onwards</small> 
+          <br/>
+          <b> {{property.type}} </b>  <small class="mb-2 text-muted">onwards</small>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- <nav id="navbar-prop-details" class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-details" aria-controls="navbarSupportedContent-details" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent-details">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#item-1" prevent-default="">
+            <h5 class="card-subtitle mb-2">Properties Available</h5>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" prevent-default="">
+            <h5 class="card-subtitle mb-2">Overview</h5>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">
+            <h5 class="card-subtitle mb-2">Amenities</h5>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">
+            <h5 class="card-subtitle mb-2">Specifications</h5>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">
+            <h5 class="card-subtitle mb-2">Gallery</h5>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">
+            <h5 class="card-subtitle mb-2">Map View</h5>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">
+            <h5 class="card-subtitle mb-2">About the builder</h5>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav> -->
+</div>
+
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+          
+          <div class="row">
+            <div class="col-sm-12 m-t-20">
+              <div class="card">
+                <div class="card-header">
+                  <h2 class="card-title">Amenities</h2> 
+                </div>
+                <div class="card-body">
+                  <div *ngFor="let amGroups of property.amenities">
+                    <div class="amenties-title" >{{amGroups.title}}</div>
+                    <ul class="amenities-list">
+                      <li *ngFor="let amenities of amGroups.details">
+                        <span class="am-txt">{{amenities.name}}</span>
+                      </li>
+                    </ul>
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-sm-12 m-t-20">
+              <div class="card">
+                <div class="card-header">
+                  <h2 class="card-title">Gallery</h2> 
+                </div>
+                <div class="card-body">
+                    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                        
+                        <div class="carousel-inner">
+                          <div class="carousel-item" [ngClass]="{'active' : i == 0}" *ngFor="let image of property.gallery; index as i">
+                            <img class="d-block w-100" [src]="image.url" alt="First slide">
+                          </div>
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                          <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                          <span class="sr-only">Next</span>
+                        </a>
+                      </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-sm-12 m-t-20">
+              <div class="card">
+                <div class="card-header">
+                  <h2 class="card-title">Specifications</h2> 
+                </div>
+                <div class="card-body">
+                    <div id="carouselExampleSpecifications" class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner">
+                          <div class="carousel-item" [ngClass]="{'active' : i == 0}" *ngFor="let specification of property.specifications; index as i">
+                            <div class="card">
+                              <div class="card-body">
+                                <div class="media">
+                                  <div class="media-body">
+                                    <p><strong>{{specification.title}}</strong></p>
+                                    <p *ngFor="let detail of specification.details">{{detail.name}}</p>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselExampleSpecifications" role="button" data-slide="prev">
+                          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                          <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExampleSpecifications" role="button" data-slide="next">
+                          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                          <span class="sr-only">Next</span>
+                        </a>
+                      </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-sm-12 m-t-20">
+              <div class="card">
+                <div class="card-header">
+                  <h2 class="card-title">Map View</h2> 
+                </div>
+                <div class="card-body">
+                  
+                  <div class="media">
+                    <div class="media-left media-middle">
+                      <iframe width="600"
+                      height="450"
+                      frameborder="0" style="border:0"
+                      src="//www.google.com/maps/embed/v1/place?q=Harrods,Brompton%20Rd,%20UK&zoom=17&key=AIzaSyBEkSYANOB52mC9wKmHoKIejCBRFjZzrnA">
+                      </iframe>
+                    </div>
+                    <div class="media-body">
+                    </div>
+                  </div>
+                 
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-sm-12 m-t-20">
+              <div class="card">
+                <div class="card-header">
+                  <h2 class="card-title">About the builder</h2> 
+                </div>
+                <div class="card-body">
+                  
+                  <div class="media">
+                    <div class="media-left media-middle">
+                      <img class="card-img-top" [src]="property.builder.logoUrl" alt="Card image cap">
+                    </div>
+                    <div class="media-body">
+                      <p class="lead">
+                        {{property.builder.details}}
+                      </p>
+                    </div>
+                  </div>
+                 
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-sm-12 m-t-20">
+              <div class="card">
+                <div class="card-header">
+                  <h2 class="card-title">Ratings and Reviews</h2> 
+                </div>
+                <div class="card-body">
+                  <div *ngIf="this.reviews.length > 0">
+                    <div class="card mb-20" *ngFor="let review of reviews">
+                      <div class="card-body">
+                        <p><strong>{{review.title}}</strong></p>
+                        <p class="card-text">{{review.description}}</p>
+                        <p>
+                          <small class="mb-2 text-muted">
+                            <span>
+                              <i class="fa fa-user" aria-hidden="true"></i>
+                            </span>{{review.by}} 
+                            <span>
+                              <i class="far fa-calendar-alt" aria-hidden="true"></i>
+                            </span>{{review.createdDateTime | date}}</small>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div *ngIf="this.reviews.length == 0">
+                    <p class="lead">
+                      Be the fist to review
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,44 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
+.p-t-10{
+    padding-top: 10px;
+}
+
+.p-t-30{
+    padding-top: 30px;
+}
+
+.p-t-100{
+    padding-top: 100px;
+}
+
+.m-t-20{
+    margin-top: 10px;
+}
+
+.mb-20{
+    margin-bottom: 20px;
+}
+
+a {
+    cursor: pointer;
+}
+
+.w-100
+{
+    width: 100% !important;
+}
+
+.dropdown:hover>.dropdown-menu {
+    display: block;
+}
+
+.bg-yellow{
+    background: yellow;
+}
+
+.txt-white{
+    color: white;
+}

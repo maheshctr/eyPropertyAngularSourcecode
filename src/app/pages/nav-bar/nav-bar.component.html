@@ -1,0 +1,55 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+  <a class="navbar-brand" [routerLink]="['/']">{{brandName}}</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" [routerLink]="['/']">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/']">Buy</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/']">Sell</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/']">Rent</a>
+      </li>
+      <!-- <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Dropdown
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" [routerLink]="['/register']" >Register</a>
+          <a class="dropdown-item" [routerLink]="['/login']">Login</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" [routerLink]="['/details']">Details</a>
+          <a class="dropdown-item" (click)="showLogin()">Login Dialog</a>
+        </div>
+      </li> -->
+      <li class="nav-item">
+        <a class="nav-link" *ngIf="showNavbar && isDetailsPage" (click)="showReview()">Review</a>
+      </li>
+    </ul>
+    <button class="btn btn-secondary btn-light" (click)="showLogin()" *ngIf="!showNavbar">Have account? Login here</button>
+    <!-- <button class="btn btn-secondary btn-light" (click)="showLogin()" *ngIf="!showNavbar">New to {{brandName}}? Sign Up</button> -->
+    <ul class="navbar-nav" *ngIf="showNavbar">
+      <li class="nav-item">
+        <a [routerLink]="['/profile']" class="nav-link">
+            <i class="fas fa-user-circle" tooltip="{{userInfo.email}}" placement="auto"></i>
+        </a>
+      </li>
+      <li class="nav-item dropdown">
+        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Account <span class="caret"></span></a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" [routerLink]="['/profile']">Profile</a>
+          <a class="dropdown-item" role="separator" class="divider"></a>
+          <a class="dropdown-item" (click)='logout()'>Logout</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>
